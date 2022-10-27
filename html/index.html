@@ -68,6 +68,17 @@
             --bs-body-color: var(--bs-gray-100);
         }
 
+        .list-group-scrollable {
+            height: 390px;
+            overflow-y: scroll;
+        }
+        .list-group-scrollable>.list-group-item:last-child {
+            border-radius: 0;
+            border-bottom-width: 1px;
+            -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
+            -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
+            box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 
@@ -117,9 +128,11 @@
                             <p class="card-text">The core platform documentation. Understand all things Nautobot and
                                 learn how to install, configure, manage, and extend Nautobot.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush border-bottom-0">
                             <li class="list-group-item"><a href="https://docs.nautobot.com/projects/core/en/stable/"
                                     class="w-100 btn btn-lg btn-primary" target="_blank">To the Core Docs!</a></li>
+                        </ul>
+                        <ul class="list-group list-group-flush list-group-scrollable">
                             <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/core/en/stable/installation/"
                                     class="link-dark">Installation Guide</a></li>
@@ -160,11 +173,13 @@
                                 of the Apps in the ecosystem with guides for Usage, Administration, and
                                 Development of each App.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush border-bottom-0">
                             <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/core/en/stable/apps/"
                                     class="w-100 btn btn-lg btn-warning" target="_blank">To the App Docs!</a>
                             </li>
+                        </ul>
+                        <ul class="list-group list-group-flush list-group-scrollable">
                             <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/core/en/stable/apps/nautobot-apps/"
                                     class="link-dark">Community-Developed Nautobot Apps</a>
@@ -203,6 +218,11 @@
                             <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/plugin-nornir/en/latest/"
                                     class="link-dark">Nautobot Plugin Nornir</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/data-validation/en/latest/"
+                                    class="link-dark">Nautobot Data Validation Engine</a><span
                                     class="badge text-bg-dark rounded-pill ms-1">App</span>
                             </li>
                         </ul>
