@@ -7,6 +7,21 @@
     <meta name="description"
         content="Nautobot is an extensible and flexible Network Source of Truth and Network Automation Platform that is the cornerstone of any network automation architecture. This page is the perfect starting point for accessing all Nautobot ecosystem documentation.">
     <meta name="author" content="Network To Code">
+    <meta property="og:title" content="Nautobot Documentation" />
+    <meta property="og:description"
+        content="Nautobot is an extensible and flexible Network Source of Truth and Network Automation Platform that is the cornerstone of any network automation architecture. This page is the perfect starting point for accessing all Nautobot ecosystem documentation." />
+    <meta property="og:image" content="https://docs.nautobot.com/assets/img/docs-wide.png">
+    <meta property="og:url" content="https://docs.nautobot.com">
+    <meta property="og:site_name" content="Nautobot" />
+    <meta property="og:type" content="website" />
+    <meta content="Nautobot Documentation" name="twitter:title">
+    <meta name="twitter:description"
+        content="Nautobot is an extensible and flexible Network Source of Truth and Network Automation Platform that is the cornerstone of any network automation architecture. This page is the perfect starting point for accessing all Nautobot ecosystem documentation.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://docs.nautobot.com/assets/img/docs-wide.png">
+    <meta name="twitter:site" content="@networktocode" />
+    <meta name="twitter:url" content="https://docs.nautobot.com" />
+
     <title>Nautobot Documentation</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -53,6 +68,19 @@
             --bs-body-color: var(--bs-gray-100);
         }
 
+        .list-group-scrollable {
+            height: 390px;
+            overflow-y: scroll;
+        }
+
+        .list-group-scrollable>.list-group-item:last-child {
+            border-radius: 0;
+            border-bottom-width: 1px;
+            -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+        }
+
     </style>
 </head>
 
@@ -75,7 +103,7 @@
                         href="https://www.youtube.com/playlist?list=PLjA0bhxgryJ2Ts4GJMDA-tPzVWEncv4pb"
                         class="nav-link">Videos</a></li>
                 <li class="nav-item"><a target="_blank"
-                        href="https://www.networktocode.com/academy/enterprise/nautobot-package-iv/"
+                        href="https://networktocode.com/course/package-iv-nautobot/"
                         class="nav-link">Training</a>
                 </li>
             </ul>
@@ -102,24 +130,28 @@
                             <p class="card-text">The core platform documentation. Understand all things Nautobot and
                                 learn how to install, configure, manage, and extend Nautobot.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="https://nautobot.readthedocs.io/en/stable/"
+                        <ul class="list-group list-group-flush border-bottom-0">
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/core/en/stable/"
                                     class="w-100 btn btn-lg btn-primary">To the Core Docs!</a></li>
+                        </ul>
+                        <ul class="list-group list-group-flush list-group-scrollable">
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/installation/"
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/"
                                     class="link-dark">Installation Guide</a></li>
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/user-guides/getting-started/"
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/feature-guides/getting-started/"
                                     class="link-dark">Getting Started Guide</a></li>
-                            <li class="list-group-item"><a href="https://nautobot.readthedocs.io/en/stable/docker/"
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/docker/"
                                     class="link-dark">Nautobot Docker Images</a></li>
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/rest-api/overview/"
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/platform-functionality/rest-api/overview/"
                                     class="link-dark">REST API Overview</a></li>
-                            <li class="list-group-item"><a href="https://nautobot.readthedocs.io/en/stable/development/"
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/core/en/stable/development/"
                                     class="link-dark">Nautobot Development Guide</a></li>
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/release-notes/"
+                                    href="https://docs.nautobot.com/projects/core/en/stable/release-notes/"
                                     class="link-dark">Release Notes</a></li>
                             <li class="list-group-item"><a href="https://nautobot-ansible.readthedocs.io/en/latest/#"
                                     class="link-dark">Nautobot Ansible Collection</a><span
@@ -127,9 +159,15 @@
                             <li class="list-group-item"><a href="https://pynautobot.readthedocs.io/en/latest/index.html"
                                     class="link-dark">Python Library: pynautobot</a><span
                                     class="badge text-bg-dark rounded-pill ms-1">SDK</span></li>
-                            <li class="list-group-item"><a href="https://github.com/nautobot/helm-charts"
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/helm-charts/en/stable"
                                     class="link-dark">Nautobot Helm Charts</a><span
                                     class="badge text-bg-dark rounded-pill ms-1">K8s</span></li>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/nornir-nautobot/en/latest/"
+                                    class="link-dark">Nornir Nautobot</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">Plugins</span></li>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/pylint-nautobot/en/latest/"
+                                    class="link-dark">Nautobot Pylint Plugin</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">Linter</span></li>
                         </ul>
                     </div>
                 </div>
@@ -143,46 +181,83 @@
                                 of the Apps in the ecosystem with guides for Usage, Administration, and
                                 Development of each App.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="https://nautobot.readthedocs.io/en/stable/apps/"
+                        <ul class="list-group list-group-flush border-bottom-0">
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/core/en/stable/apps/"
                                     class="w-100 btn btn-lg btn-warning" target="_blank">To the App Docs!</a>
                             </li>
-                            <li class="list-group-item"><a href="https://nautobot.readthedocs.io/en/stable/apps/"
-                                    class="link-dark">Network to Code Nautobot Apps</a></li>
+                        </ul>
+                        <ul class="list-group list-group-flush list-group-scrollable">
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/apps/nautobot-apps/"
-                                    class="link-dark">Community-Developed Nautobot Apps</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/apps/nautobot-apps/"
+                                    class="link-dark">Community-Developed Nautobot Apps</a>
+                            </li>
                             <li class="list-group-item"><a
-                                    href="https://nautobot.readthedocs.io/en/stable/plugins/development/"
-                                    class="link-dark">Using and Developing Nautobot Apps (Plugins)</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/development/apps/"
+                                    class="link-dark">Developing Nautobot Apps (Plugins)</a>
+                            </li>
                             <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/golden-config/en/latest/"
                                     class="link-dark">Nautobot Golden Configuration</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span></li>
-                            <li class="list-group-item">Nautobot Device Onboarding<span
-                                    class="badge text-bg-dark rounded-pill ms-1">Coming soon</span></li>
-                            <!-- <li class="list-group-item"><a
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/floor-plan/en/latest/"
+                                    class="link-dark">Nautobot Floor Plan</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
                                     href="https://docs.nautobot.com/projects/device-onboarding/en/latest/"
                                     class="link-dark">Nautobot Device Onboarding</a><span
                                     class="badge text-bg-dark rounded-pill ms-1">App</span>
-                            </li> -->
-                            <li class="list-group-item"><a href="https://nautobot-plugin-ssot.readthedocs.io/en/latest/"
+                            </li>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/ssot/en/latest/"
                                     class="link-dark">Nautobot Single Source of Truth
-                                    (SSoT)</a><span class="badge text-bg-dark rounded-pill ms-1">App</span></li>
-                            <li class="list-group-item">Nautobot Device Lifecycle Management<span
-                                    class="badge text-bg-dark rounded-pill ms-1">Coming soon</span></li>
-                            <!-- <li class="list-group-item"><a
-                                    href="https://github.com/nautobot/nautobot-plugin-device-lifecycle-mgmt/tree/develop/docs"
-                                    class="link-dark">Nautobot Device Lifecycle
-                                    Management</a><span class="badge text-bg-dark rounded-pill ms-1">App</span></li> -->
+                                    (SSoT)</a><span class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
                             <li class="list-group-item"><a
-                                    href="https://nautobot-plugin-firewall-models.readthedocs.io/en/latest/"
+                                    href="https://docs.nautobot.com/projects/device-lifecycle/en/latest/"
+                                    class="link-dark">Nautobot Device Lifecycle Management</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/firewall-models/en/latest/"
                                     class="link-dark">Nautobot Firewall
                                     Models</a><span class="badge text-bg-dark rounded-pill ms-1">App</span></li>
-                            <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/chatops/en/latest/"
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/chatops/en/latest/"
                                     class="link-dark">Nautobot ChatOps</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span></li>
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/plugin-nornir/en/latest/"
+                                    class="link-dark">Nautobot Plugin Nornir</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/data-validation/en/latest/"
+                                    class="link-dark">Nautobot Data Validation Engine</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/netbox-importer/en/latest/"
+                                    class="link-dark">Nautobot NetBox Importer</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/welcome-wizard/en/latest/"
+                                    class="link-dark">Nautobot Welcome Wizard</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/circuit-maintenance/en/latest/"
+                                    class="link-dark">Nautobot Circuit Maintenance</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
+                            <li class="list-group-item"><a
+                                    href="https://docs.nautobot.com/projects/bgp-models/en/latest/"
+                                    class="link-dark">Nautobot BGP Models</a><span
+                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -233,16 +308,16 @@
                     <h5>Products</h5>
                     <ul class="list-unstyled text-small">
                         <li class="mb-1"><a class="link-light text-decoration-none"
-                                href="https://www.networktocode.com/services/support/">Nautobot Support</a>
+                                href="https://networktocode.com/nautobot/nautobot-support/">Nautobot Support</a>
                         </li>
                         <li class="mb-1"><a target="_blank"
-                                href="https://www.networktocode.com/nautobot-cloud-managed-services/"
-                                class="link-light text-decoration-none">Nautobot Managed Services</a></li>
+                                href="https://networktocode.com/resources/webinars/?category=upcoming#scroll_down"
+                                class="link-light text-decoration-none">Nautobot Webinars</a></li>
                         <li class="mb-1"><a class="link-light text-decoration-none"
-                                href="https://www.networktocode.com/nautobot-cloud-managed-services/">Nautobot Cloud</a>
+                                href="https://networktocode.com/nautobot/nautobot-cloud/">Nautobot Cloud</a>
                         </li>
                         <li class="mb-1"><a class="link-light text-decoration-none"
-                                href="https://www.networktocode.com/academy/enterprise/nautobot-package-iv/">Nautobot
+                                href="https://networktocode.com/course/package-iv-nautobot/">Nautobot
                                 Training</a>
                         </li>
                     </ul>
@@ -250,6 +325,16 @@
             </div>
         </div>
     </footer>
+    <!-- GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1VN0PBG2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-72613040-2');
+        gtag('config', 'G-0D1VN0PBG2');
+    </script>
+    <!-- GA -->
 </body>
 
 </html>
