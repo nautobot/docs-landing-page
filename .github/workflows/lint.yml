@@ -3,6 +3,7 @@ name: "Lint"
 on: # yamllint disable-line rule:truthy rule:comments
   - "push"
   - "pull_request"
+permissions: "read-all"
 
 jobs:
   build:
