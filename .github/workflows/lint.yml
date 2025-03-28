@@ -1,8 +1,11 @@
 ---
 name: "Lint"
 on: # yamllint disable-line rule:truthy rule:comments
-  - "push"
-  - "pull_request"
+  push:
+    branches:
+      - "main"
+  pull_request: ~
+permissions: "read-all"
 
 jobs:
   build:
@@ -14,7 +17,7 @@ jobs:
       # Checkout the code base #
       ##########################
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
@@ -23,8 +26,9 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: github/super-linter/slim@v4
+        uses: super-linter/super-linter/slim@v7.3.0
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_HTML_PRETTIER: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
