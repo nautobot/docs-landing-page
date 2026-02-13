@@ -24,57 +24,267 @@
 
     <title>Nautobot Documentation</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Zilla+Slab:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" href="assets/img/favicon.ico">
 
     <style>
+        :root {
+            --ntc-orange: #e07807;
+            --ntc-orange-hover: #c86a06;
+            --ntc-blue: #007dff;
+            --ntc-dark: #252525;
+            --ntc-darker: #191919;
+            --ntc-light: #f5f5f5;
+            --bs-dark-rgb: 37, 37, 37;
+        }
+
+        body {
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: "Zilla Slab", Georgia, serif;
+            font-weight: 700;
+        }
+
         .bi {
             vertical-align: 0.125em;
             fill: currentColor;
         }
 
-        body {
-            background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
-        }
-
         .container {
-            max-width: 960px;
+            max-width: 1200px;
         }
 
-        .main-header {
-            max-width: 700px;
+        /* Navbar */
+        .navbar {
+            background-color: var(--ntc-darker);
+            padding: 0.75rem 0;
         }
 
-        :root {
-            --bs-blue: #0097ff;
-            --bs-orange: #ff8504;
-            --bs-primary-rgb: rgb(0, 151, 255);
-            --bs-dark-rgb: 37, 37, 37;
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .nav {
-            --bs-nav-link-color: var(--bs-white);
-            --bs-nav-link-hover-color: var(--bs-orange);
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: var(--ntc-orange);
         }
 
+        .navbar-brand a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar-brand a:hover {
+            color: var(--ntc-orange);
+        }
+
+        /* Hero / Header */
+        .hero-section {
+            background-color: var(--ntc-light);
+            padding: 2rem 1rem 1.5rem;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            color: var(--ntc-dark);
+        }
+
+        .hero-section p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards */
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: var(--ntc-light);
+            color: var(--ntc-dark);
+            border-bottom: 2px solid #e0e0e0;
+            padding: 1rem 1.25rem;
+        }
+
+        .card-header h2 {
+            color: var(--ntc-dark);
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-header h2::before {
+            content: "";
+            display: inline-block;
+            width: 1.5em;
+            height: 0.65em;
+            margin-right: 0.4rem;
+            vertical-align: middle;
+            background-image: url("data:image/svg+xml,%3Csvg width='55' height='24' viewBox='0 0 55 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.1562 13.1028L1.44931 23.374C1.32328 23.437 1.13424 23.5001 0.945201 23.5001C0.630132 23.5001 0.315064 23.311 0.126023 23.059C-0.126032 22.6179 -4.53484e-06 22.0507 0.441091 21.7987L17.7699 11.7795L0.504105 2.26444C0.0630092 2.01238 -0.126032 1.44526 0.126023 1.00416C0.378078 0.563065 0.945201 0.374024 1.3863 0.626079L19.0931 10.2672C19.5973 10.5192 19.9123 11.0864 19.9123 11.6535C19.9123 12.2206 19.6603 12.7877 19.1562 13.1028ZM37.2411 11.6535C37.2411 11.0864 36.926 10.5192 36.4219 10.2672L18.6521 0.626079C18.211 0.374024 17.6438 0.563065 17.3918 1.00416C17.1397 1.44526 17.3288 2.01238 17.7699 2.26444L35.0356 11.7165L17.7699 21.7357C17.3288 21.9877 17.1397 22.5548 17.4548 22.9959C17.6438 23.311 17.9589 23.437 18.274 23.437C18.463 23.437 18.589 23.374 18.7781 23.311L36.4219 13.1028C36.926 12.7877 37.2411 12.2836 37.2411 11.6535ZM53.6246 10.2672L35.9178 0.626079C35.4767 0.374024 34.9096 0.563065 34.6575 1.00416C34.4055 1.44526 34.5945 2.01238 35.0356 2.26444L52.3014 11.7165L35.0356 21.7357C34.5945 21.9877 34.4055 22.5548 34.7205 22.9959C34.9096 23.311 35.2247 23.437 35.5397 23.437C35.7288 23.437 35.8548 23.374 36.0438 23.311L53.6877 13.1028C54.1918 12.7877 54.5068 12.2836 54.5068 11.6535C54.4438 11.0864 54.1288 10.5822 53.6246 10.2672Z' fill='%23E07807'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .card-body {
+            padding: 0.75rem 1.25rem;
+            min-height: 7rem;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .card-action {
+            padding: 0.75rem 1.25rem;
+
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 4rem;
+        }
+
+        /* Buttons */
+        .btn-ntc {
+            background-color: var(--ntc-orange);
+            color: #fff;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.2s, opacity 0.2s;
+        }
+
+        .btn-ntc:hover,
+        .btn-ntc:focus {
+            background-color: var(--ntc-orange-hover);
+            color: #fff;
+        }
+
+        .btn-ntc-blue {
+            background-color: var(--ntc-blue);
+            color: #fff;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-ntc-blue:hover,
+        .btn-ntc-blue:focus {
+            background-color: #0065d1;
+            color: #fff;
+        }
+
+        .btn-ntc-outline {
+            background-color: transparent;
+            color: var(--ntc-orange);
+            border: 2px solid var(--ntc-orange);
+            border-radius: 9999px;
+            font-weight: 500;
+            padding: calc(0.5rem - 2px) 1.5rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-ntc-outline:hover,
+        .btn-ntc-outline:focus {
+            background-color: var(--ntc-orange);
+            color: #fff;
+        }
+
+        /* Split button dropdown */
+        .btn-group .btn-ntc {
+            border-radius: 9999px 0 0 9999px;
+        }
+
+        .btn-group .btn-ntc.dropdown-toggle-split {
+            border-radius: 0 9999px 9999px 0;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dropdown-menu {
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            border: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--ntc-light);
+            color: var(--ntc-orange);
+        }
+
+        /* List groups */
+        .list-group-flush .list-group-item {
+            padding: 0.6rem 1.25rem;
+            border-color: #f0f0f0;
+            transition: background-color 0.15s;
+        }
+
+        .list-group-flush .list-group-item:hover {
+            background-color: #fdf6ef;
+        }
+
+        .list-group-flush .list-group-item a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.15s;
+        }
+
+        .list-group-flush .list-group-item a:hover {
+            color: var(--ntc-orange);
+        }
+
+        .badge-ntc {
+            background-color: var(--ntc-dark);
+            color: var(--ntc-light);
+            font-weight: 500;
+            font-size: 0.7rem;
+        }
+
+        /* Footer */
         footer {
-            --bs-heading-color: #2c9cd4;
-            --bs-body-color: var(--bs-gray-100);
+            background-color: var(--ntc-darker);
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        .list-group-scrollable {
-            height: 795px;
-            overflow-y: scroll;
+        footer h5 {
+            color: var(--ntc-orange);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
         }
 
-        .list-group-scrollable>.list-group-item:last-child {
-            border-radius: 0;
-            border-bottom-width: 1px;
-            -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
-            -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--ntc-orange);
+        }
+
+        footer .social-links a {
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
         }
     </style>
     <!-- Google Tag Manager -->
@@ -95,13 +305,13 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
-                <h1 class="align-text-center">
-                    <a href="/" class="nav-link link-light">
-                        <img src="assets/img/nautobot_logo.png" alt="Nautobot Logo" height="40" class=""><span
-                            class="fs-2 ms-2">Documentation</span>
+                <h1 class="m-0">
+                    <a href="/">
+                        <img src="assets/img/nautobot_logo.png" alt="Nautobot Logo" height="40"><span
+                            class="fs-4 ms-2 align-middle">Documentation</span>
                     </a>
                 </h1>
             </div>
@@ -118,231 +328,197 @@
         </div>
     </nav>
 
-    <div class="container-fluid gx-5 py-3">
+    <div class="hero-section">
         <header>
-            <div class="p-3 pb-md-4 mx-auto text-center">
-                <h1 class="display-4 fw-normal">Nautobot Documentation</h1>
-                <p class="fs-5 text-muted">Nautobot is an extensible and flexible Network Source of Truth and Network
+            <div class="px-3 py-2 mx-auto text-center">
+                <h1>Nautobot Documentation</h1>
+                <p>Nautobot is an extensible and flexible Network Source of Truth and Network
                     Automation Platform that is the cornerstone of any network automation architecture.</p>
             </div>
         </header>
+    </div>
+
+    <div class="container py-3">
 
         <main id="main-content">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3 g-3 text-center">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 g-4">
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm h-100">
-                        <div class="card-header py-3">
-                            <h2 class="my-0 fw-semibold">Core Project</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Core Project</h2>
                         </div>
                         <div class="card-body">
                             <p class="card-text">The core platform documentation. Understand all things Nautobot and
                                 learn how to install, configure, manage, and extend Nautobot.</p>
                         </div>
-                        <ul class="list-group list-group-flush border-bottom-0">
-                            <li class="list-group-item">
-                                <div class="w-100 btn-group">
-                                    <a href="https://docs.nautobot.com/projects/core/en/stable/"
-                                        class="btn btn-lg btn-primary">Open Core Docs (Stable)</a>
-                                    <button type="button"
-                                        class="w-20 btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="visually-hidden">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="https://docs.nautobot.com/projects/core/en/ltm-2.4/">LTM 2.4
-                                                Docs</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="https://docs.nautobot.com/projects/core/en/latest/">Latest
-                                                Development Docs</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="https://docs.nautobot.com/projects/core/en/next/">Next Docs</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-group list-group-flush list-group-scrollable" tabindex="0" role="region" aria-label="Core Project documentation links">
+                        <div class="card-action text-center">
+                            <div class="btn-group w-100">
+                                <a href="https://docs.nautobot.com/projects/core/en/stable/"
+                                    class="btn btn-ntc">Open Core Docs (Stable)</a>
+                                <button type="button"
+                                    class="btn btn-ntc dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="https://docs.nautobot.com/projects/core/en/ltm-2.4/">LTM 2.4
+                                            Docs</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="https://docs.nautobot.com/projects/core/en/latest/">Latest
+                                            Development Docs</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="https://docs.nautobot.com/projects/core/en/next/">Next Docs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush" tabindex="0" role="region" aria-label="Core Project documentation links">
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/"
-                                    class="link-dark">Installation Guide</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/">Installation Guide</a></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/feature-guides/getting-started/"
-                                    class="link-dark">Getting Started Guide</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/feature-guides/getting-started/">Getting Started Guide</a></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/docker/"
-                                    class="link-dark">Nautobot Docker Images</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/installation/docker/">Nautobot Docker Images</a></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/platform-functionality/rest-api/overview/"
-                                    class="link-dark">REST API Overview</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/user-guide/platform-functionality/rest-api/overview/">REST API Overview</a></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/development/"
-                                    class="link-dark">Nautobot Developer Guide</a></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/development/">Nautobot Developer Guide</a></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/release-notes/"
-                                    class="link-dark">Release Notes</a></li>
-                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/ansible/en/stable/"
-                                    class="link-dark">Nautobot Ansible Collection</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">Ansible</span></li>
+                                    href="https://docs.nautobot.com/projects/core/en/stable/release-notes/">Release Notes</a></li>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/ansible/en/stable/">Nautobot Ansible Collection</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">Ansible</span></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/pynautobot/en/stable/"
-                                    class="link-dark">Python Library: pynautobot</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">SDK</span></li>
+                                    href="https://docs.nautobot.com/projects/pynautobot/en/stable/">Python Library: pynautobot</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">SDK</span></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/helm-charts/en/stable"
-                                    class="link-dark">Nautobot Helm Charts</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">K8s</span></li>
+                                    href="https://docs.nautobot.com/projects/helm-charts/en/stable">Nautobot Helm Charts</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">K8s</span></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/nornir-nautobot/en/stable/"
-                                    class="link-dark">Nornir Nautobot</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">Nornir Plugins</span></li>
+                                    href="https://docs.nautobot.com/projects/nornir-nautobot/en/stable/">Nornir Nautobot</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">Nornir</span></li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/pylint-nautobot/en/stable/"
-                                    class="link-dark">Nautobot Pylint Plugin</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">Linter</span></li>
+                                    href="https://docs.nautobot.com/projects/pylint-nautobot/en/stable/">Nautobot Pylint Plugin</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">Linter</span></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm h-100">
-                        <div class="card-header py-3">
-                            <h2 class="my-0 fw-semibold">Open Source Apps</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Open Source Apps</h2>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">This section lists all of the open source Nautobot Apps developed by
-                                Network To Code. Learn about these Apps with guides for Usage, Administration, and
+                            <p class="card-text">Open source Nautobot Apps developed by
+                                Network To Code, with guides for Usage, Administration, and
                                 Development.</p>
                         </div>
-                        <ul class="list-group list-group-flush border-bottom-0">
+                        <div class="card-action text-center">
+                            <a href="https://docs.nautobot.com/projects/core/en/stable/development/apps/"
+                                class="w-100 btn btn-ntc-outline" target="_blank">Build Nautobot Apps</a>
+                        </div>
+                        <ul class="list-group list-group-flush" tabindex="0" role="region" aria-label="Open Source Apps documentation links">
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/core/en/stable/development/apps/"
-                                    class="w-100 btn btn-lg btn-warning" target="_blank">Discover Nautobot Apps</a>
-                            </li>
-                        </ul>
-                        <ul class="list-group list-group-flush list-group-scrollable" tabindex="0" role="region" aria-label="Open Source Apps documentation links">
-                            <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/cookiecutter-nautobot-app/en/latest/"
-                                    class="link-dark">Nautobot App Cookiecutter</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">Template</span>
+                                    href="https://docs.nautobot.com/projects/cookiecutter-nautobot-app/en/latest/">Nautobot App Cookiecutter</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">Template</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/golden-config/en/stable/"
-                                    class="link-dark">Nautobot Golden Configuration</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/golden-config/en/stable/">Nautobot Golden Configuration</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
-                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/ssot/en/stable/"
-                                    class="link-dark">Nautobot Single Source of Truth
-                                    (SSoT)</a><span class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/ssot/en/stable/">Nautobot Single Source of Truth
+                                    (SSoT)</a><span class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/device-onboarding/en/stable/"
-                                    class="link-dark">Nautobot Device Onboarding</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/device-onboarding/en/stable/">Nautobot Device Onboarding</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/floor-plan/en/stable/"
-                                    class="link-dark">Nautobot Floor Plan</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/floor-plan/en/stable/">Nautobot Floor Plan</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/bgp-models/en/stable/"
-                                    class="link-dark">Nautobot BGP Models</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/bgp-models/en/stable/">Nautobot BGP Models</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/design-builder/en/stable/"
-                                    class="link-dark">Nautobot Design Builder</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/design-builder/en/stable/">Nautobot Design Builder</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/dns-models/en/stable/"
-                                    class="link-dark">Nautobot DNS Models</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/dns-models/en/stable/">Nautobot DNS Models</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/secrets-providers/en/stable/"
-                                    class="link-dark">Nautobot Secrets Providers</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/secrets-providers/en/stable/">Nautobot Secrets Providers</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/device-lifecycle/en/stable/"
-                                    class="link-dark">Nautobot Device Lifecycle Management</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/device-lifecycle/en/stable/">Nautobot Device Lifecycle Management</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/firewall-models/en/stable/"
-                                    class="link-dark">Nautobot Firewall
-                                    Models</a><span class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/firewall-models/en/stable/">Nautobot Firewall
+                                    Models</a><span class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
-                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/chatops/en/stable/"
-                                    class="link-dark">Nautobot ChatOps</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/chatops/en/stable/">Nautobot ChatOps</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/data-validation/en/stable/"
-                                    class="link-dark">Nautobot Data Validation Engine</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/data-validation/en/stable/">Nautobot Data Validation Engine</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/plugin-nornir/en/stable/"
-                                    class="link-dark">Nautobot Plugin Nornir</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/plugin-nornir/en/stable/">Nautobot Plugin Nornir</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/circuit-maintenance/en/stable/"
-                                    class="link-dark">Nautobot Circuit Maintenance</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/circuit-maintenance/en/stable/">Nautobot Circuit Maintenance</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/welcome-wizard/en/stable/"
-                                    class="link-dark">Nautobot Welcome Wizard</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/welcome-wizard/en/stable/">Nautobot Welcome Wizard</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/capacity-metrics/en/stable/"
-                                    class="link-dark">Nautobot Capacity Metrics</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/capacity-metrics/en/stable/">Nautobot Capacity Metrics</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/netbox-importer/en/stable/"
-                                    class="link-dark">Nautobot NetBox Importer</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/netbox-importer/en/stable/">Nautobot NetBox Importer</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm h-100">
-                        <div class="card-header py-3">
-                            <h2 class="my-0 fw-semibold">Commercial Software</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Commercial Software</h2>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">This section links to documentation for commercial Nautobot products.
+                            <p class="card-text">Documentation for commercial Nautobot products.
                             </p>
                         </div>
-                        <ul class="list-group list-group-flush border-bottom-0">
-                            <li class="list-group-item"><a href="https://networktocode.com/nautobot/nautobot-cloud/"
-                                    class="w-100 btn btn-lg btn-success" target="_blank">Nautobot Commercial
-                                    Software</a>
-                            </li>
-                        </ul>
-                        <ul class="list-group list-group-flush list-group-scrollable" tabindex="0" role="region" aria-label="Commercial Software documentation links">
-                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/cloud/en/latest/"
-                                    class="link-dark">Nautobot Cloud</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">SaaS</span>
+                        <div class="card-action text-center">
+                            <a href="https://networktocode.com/nautobot/nautobot-cloud/"
+                                class="w-100 btn btn-ntc-blue" target="_blank">Nautobot Commercial
+                                Software</a>
+                        </div>
+                        <ul class="list-group list-group-flush" tabindex="0" role="region" aria-label="Commercial Software documentation links">
+                            <li class="list-group-item"><a href="https://docs.nautobot.com/projects/cloud/en/latest/">Nautobot Cloud</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">SaaS</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/nautobotgpt/en/latest/"
-                                    class="link-dark">NautobotGPT</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">AI</span>
+                                    href="https://docs.nautobot.com/projects/nautobotgpt/en/latest/">NautobotGPT</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">AI</span>
                             </li>
                             <li class="list-group-item"><a
-                                    href="https://docs.nautobot.com/projects/ansible-automation/en/stable/"
-                                    class="link-dark">Nautobot Ansible Automation</a><span
-                                    class="badge text-bg-dark rounded-pill ms-1">App</span>
+                                    href="https://docs.nautobot.com/projects/ansible-automation/en/stable/">Nautobot Ansible Automation</a><span
+                                    class="badge badge-ntc rounded-pill ms-1">App</span>
                             </li>
                             <li class="list-group-item">Nautobot Version Control<span
-                                    class="badge text-bg-dark rounded-pill ms-1">Coming Soon</span>
+                                    class="badge badge-ntc rounded-pill ms-1">Coming Soon</span>
                             </li>
                         </ul>
                     </div>
@@ -352,57 +528,57 @@
     </div>
 
 
-    <footer class="pt-4 mt-auto bg-dark">
+    <footer class="pt-4 mt-auto">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-12">
-                    <h5>Sponsored by:</h5>
+                    <h5>Sponsored by</h5>
                     <p><img src="assets/img/networktocode_bw.png" alt="Network to Code" height="40"
                             class="d-inline-block align-text-center">
                     </p>
-                    <p class="text-light h4">
-                        <a href="mailto:info@networktocode.com" class="link-light" aria-label="Email"><i
+                    <p class="social-links">
+                        <a href="mailto:info@networktocode.com" aria-label="Email"><i
                                 class="bi bi-envelope-fill"></i></a>
-                        <a href="https://blog.networktocode.com/blog/feed.xml" class="link-light" aria-label="RSS Feed"><i
+                        <a href="https://blog.networktocode.com/blog/feed.xml" aria-label="RSS Feed"><i
                                 class="bi bi-rss-fill"></i></a>
-                        <a href="https://www.linkedin.com/company/network-to-code/" class="link-light" aria-label="LinkedIn"><i
+                        <a href="https://www.linkedin.com/company/network-to-code/" aria-label="LinkedIn"><i
                                 class="bi bi-linkedin"></i></a>
-                        <a href="https://github.com/networktocode" class="link-light" aria-label="GitHub"><i class="bi bi-github"></i></a>
-                        <a href="https://twitter.com/networktocode" class="link-light" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="https://github.com/networktocode" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://twitter.com/networktocode" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                         <a href="https://www.youtube.com/playlist?list=PLjA0bhxgryJ2Ts4GJMDA-tPzVWEncv4pb"
-                            class="link-light" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                     </p>
                 </div>
                 <div class="col-md-3 col-6">
                     <h5>Community</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://www.networktocode.com/nautobot/sandbox-environments/">Nautobot
                                 Sandboxes</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://www.networktocode.com/community/">Slack</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://github.com/nautobot">GitHub</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://blog.networktocode.com/blog/tags/nautobot">Nautobot Blogs</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://www.youtube.com/playlist?list=PLjA0bhxgryJ2Ts4GJMDA-tPzVWEncv4pb">Nautobot
                                 Videos</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-6">
                     <h5>Products</h5>
-                    <ul class="list-unstyled text-small">
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://networktocode.com/nautobot/nautobot-support/">Nautobot Support</a>
                         </li>
                         <li class="mb-1"><a target="_blank"
                                 href="https://networktocode.com/resources/webinars/?category=upcoming#scroll_down"
-                                class="link-light text-decoration-none">Nautobot Webinars</a></li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                                class="text-decoration-none">Nautobot Webinars</a></li>
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://networktocode.com/nautobot/nautobot-cloud/">Nautobot Cloud</a>
                         </li>
-                        <li class="mb-1"><a class="link-light text-decoration-none"
+                        <li class="mb-1"><a class="text-decoration-none"
                                 href="https://networktocode.com/course/package-iv-nautobot/">Nautobot
                                 Training</a>
                         </li>
